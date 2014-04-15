@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="Renalcio" />
+    <link rel="stylesheet" type="text/css" href="css/pagina.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.tabs.css"/>
+	<link type="text/css" rel="stylesheet" href="sh/styles/shCoreDefault.css"/>
+	<title>JQuery Tabs 1.0</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.tabs.js"></script>
+    <!-- SyntaxHighlighter -->
+	<script type="text/javascript" src="sh/scripts/shCore.js"></script>
+	<script type="text/javascript" src="sh/scripts/shAutoloader.js"></script>
+	<script type="text/javascript" src="sh/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="sh/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="sh/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="sh/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="sh/scripts/shBrushXml.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+    <script type="text/javascript">
+    // A Mágica
+    $(function(){
+        //Tab com XHTMl (Tags próprias)
+        $("tabs#ExemploXHTML").tab();
+        //Tab sem XHTML
+        $("#ExemploHTML").tab({
+            xhtml: false,
+        });
+        $("#inicialPersonalizado").tab({
+            iniciante: 3,
+        });
+    });
+    $(function(){
+       var larguraPagina = $(window).width();
+       var alturaPagina = $(window).height()-43;
+       $(".pagina").css("min-height", alturaPagina);
+       $("#menu>li").hover(
+       
+       function(){
+            bg = $(this).css("background");
+            $(this).css("color", $(this).attr("bgc"));
+       },
+       function(){
+            $(this).css("color", "#fff");
+       });
+       $("#menu>li").click(function(){
+            $("#menu>li").css("color", "#fff");
+            $(this).css("color", $(this).attr("bgc"));
+            var href = $(this).attr("href");
+            $('html, body').animate({
+                        scrollTop: $(href).offset().top
+                    }, 2000);
+       });
+    });
+    </script>
+</head>
+
+<body>
+<ul id="menu">
+<li bgc="#F51E33" href="#sobre">Sobre</li>
+<li bgc="#5590DB" href="#passos">Primeiros Passos</li>
+<li bgc="#1D772B" href="#adicionais">Adicionais</li>
+<li bgc="#C85A8D" href="#parametros">Parâmetros</li>
+</ul>
+
+<div class="pagina" id="sobre">
+<h1 style="background: #F51E33;">Sobre</h1>
+<div class="pgconteudo">
+<table cellspacing="1" class="tblsobre" align="center" width="70%">
+<tbody>
+<tr>
+<td>Autor</td> <td>Renalcio Carlos</td>
+</tr>
+<tr>
+<td>Data</td> <td>14/04/2014</td>
+</tr>
+<tr>
+<td>Titulo</td> <td>JQuery Tabs</td>
+</tr>
+<tr>
+<td>Versão</td> <td>1.0</td>
+</tr>
+<tr>
+<td>Linguagens</td> <td>HTML5 / CSS3 / JQUERY</td>
+</tr>
+<tr>
+<td>Descrição</td> <td>Este plugin permite a criação de tabulações de conteudo de maneira fácil e prática, permitindo a utilização de HTML5 / XHTML para uso de tags exclusivas ou uso de tags padrões do HTML.</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+
+<div class="pagina" id="passos">
+<h1 style="background:#5590DB;">Primeiros Passos</h1>
+<div class="pgconteudo">
+<h2>Requisitos</h2>
+Requisitos necessários para utilização do plugin:
+<ol>
+<li>JQuery</li>
+<li>HTML</li>
+<li>CSS</li>
+</ol>
+
+<h2>Referências Externas</h2>
+Inclua a referência a biblioteca JQuery
+<pre class="brush: html;">
+<script type="text/javascript" src="js/jquery.js"></script>
+</pre>
+Ou
+<pre class="brush: html;">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</pre>
+
+<h2>Referências Internas</h2>
+Inclua a raferência ao plugin e ao tema CSS
+<pre class="brush: html;">
+<!-- Plugin -->
+<script type="text/javascript" src="js/jquery.tabs.js"></script>
+
+<!-- Tema CSS -->
+<link rel="stylesheet" type="text/css" href="css/jquery.tabs.css"/>
+</pre>
+
+<h2>Chamando o plugin</h2>
+O chamado padrão do plugin é bem simples.
+<pre class="brush: js;">
+
+$(fucntion)(){
+    $("elemento").tab();
+});
+
+</pre>
+
+<h2>Estrutura HTML</h2>
+O plugin pode ser estruturado de duas maneiras, XHTML (Tags Próprias) ou HTML (Tags padrão)
+<h3>XHTML</h3>
+<br /><b>JavaScript</b><br />
+<pre class="brush: js;">
+
+$(fucntion)(){
+    $("tabs").tab({
+        menu = "menu",
+        abasConteudo = "aba",
+        conteudo = "conteudo",
+        principal = "tabs",
+        itensMenu = "item",
+    });
+});
+
+</pre>
+<br /><b>HTML</b><br />
+<pre class="brush: html;">
+<tabs>
+    <menu>
+        <item>Aba 1</item>
+        <item>Aba 2</item>
+        <item>Aba 3</item>
+        <item>Aba 4</item>
+    </menu>
+    <conteudo>
+        <aba>
+        <h2>Titulo da Aba 1</h2>
+            Conteudo da Aba 1
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 2</h2>
+            Conteudo da Aba 2
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 3</h2>
+            Conteudo da Aba 3
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 4</h2>
+            Conteudo da Aba 4
+        </aba>
+    </conteudo>
+</tabs>
+</pre>
+Obs: Essa é a estrutura de tags padrão caso não seja definidos as variáveis Menu, Abas, Conteudo, Principal e Itens.
+<br />
+<b>Demonstração</b><br /><br />
+<tabs id="ExemploXHTML">
+    <menu>
+        <item>Aba 1</item>
+        <item>Aba 2</item>
+        <item>Aba 3</item>
+        <item>Aba 4</item>
+    </menu>
+    <conteudo>
+        <aba>
+        <h2>Titulo da Aba 1</h2>
+            Conteudo da Aba 1
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 2</h2>
+            Conteudo da Aba 2
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 3</h2>
+            Conteudo da Aba 3
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 4</h2>
+            Conteudo da Aba 4
+        </aba>
+    </conteudo>
+</tabs>
+
+<br />
+<h3>HTML Padrão</h3>
+<b>Javascript</b><br />
+<pre class="brush:js;">
+$(fucntion)(){
+    $("#tabs").tab({
+        xhtml: false
+    });
+});
+</pre>
+<br />
+<b>HTML</b><br />
+<pre class="brush: html;">
+<div id="tabs">
+    <ul>
+        <li>Aba 1</li>
+        <li>Aba 2</li>
+    </ul>
+    <div class="conteudo">
+        <div class="aba">
+            <h2>Titulo da Aba 1</h2>
+            Conteudo da Aba 1
+        </div>
+        <div class="aba">
+            <h2>Titulo da Aba 2</h2>
+            Conteudo da Aba 2
+        </div>
+    </div>
+</div>
+</pre>
+Obs: Essa é a estrutura de tags padrão caso não seja definidos as variáveis Menu, Abas, Conteudo, Principal e Itens.
+<br />
+<b>Demonstração</b><br /><br />
+<div id="ExemploHTML">
+<ul>
+    <li>Aba 1</li>
+    <li>Aba 2</li>
+    </ul>
+<div class="conteudo">
+<div class="aba">
+<h2>Titulo da Aba 1</h2>
+Conteudo da Aba 1
+</div>
+<div class="aba">
+<h2>Titulo da Aba 2</h2>
+Conteudo da Aba 2
+</div>
+</div>
+</div>
+</div></div>
+
+
+
+<div class="pagina" id="adicionais">
+<h1 style="background:#1D772B;">Adicionais</h1>
+<div class="pgconteudo">
+<h2>Posição Inicial</h2>
+Você pode configurar a aba inicial da tabulação.<br />
+<pre class="brush:js;">
+
+$(fucntion)(){
+    $("tabs").tab({
+        iniciante: 3 // Numero da aba que irá iniciar aberta.
+    });
+});
+
+</pre>
+<br />
+<b>Demonstração</b><br /><br />
+<tabs id="inicialPersonalizado">
+    <menu>
+        <item>Aba 1</item>
+        <item>Aba 2</item>
+        <item>Aba 3</item>
+        <item>Aba 4</item>
+    </menu>
+    <conteudo>
+        <aba>
+        <h2>Titulo da Aba 1</h2>
+            Conteudo da Aba 1
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 2</h2>
+            Conteudo da Aba 2
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 3</h2>
+            Esta deve ser a aba inicial.
+        </aba>
+        <aba>
+        <h2>Titulo da Aba 4</h2>
+            Conteudo da Aba 4
+        </aba>
+    </conteudo>
+</tabs>
+
+<br />
+
+</div></div>
+<div class="pagina" id="parametros">
+<h1 style="background:#C85A8D;">Parâmetros</h1>
+<div class="pgconteudo">
+<table cellspacing="1" align="center" width="100%">
+<thead>
+<tr>
+<td>Parâmetro</td>
+<td>Tipo</td>
+<td>Padrão</td>
+<td>Descrição</td>
+<td>Ver.</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xhtml</td> <td>Bool</td> <td>true</td> <td>Habilita o uso de tags personalizadas na estrutura.</td><td>1.0</td>
+</tr>
+<tr>
+<td>iniciante</td> <td>Int</td> <td>1</td> <td>Aba inicial.</td><td>1.0</td>
+</tr>
+<tr>
+<td>menu</td> <td>String</td> <td>menu</td> <td>Tag que representa o menu de abas.</td><td>1.0</td>
+</tr>
+<tr>
+<td>itensMenu</td> <td>String</td> <td>item</td> <td>Tag que representa um item do menu (Será igual para os outros itens).</td> <td>1.0</td>
+</tr>
+<tr>
+<td>conteudo</td> <td>String</td> <td>conteudo</td> <td>Tag que representa o conjunto de conteudos.</td> <td>1.0</td>
+</tr>
+<tr>
+<td>abasConteudo</td> <td>String</td> <td>aba</td> <td>Tag que representa uma aba de conteudos (Será igual para os outras abas).</td> <td>1.0</td>
+</tr>
+<tr>
+<td>principal</td> <td>String</td> <td>tabs</td> <td>Tag que representa todo o conjunto a ser tabulado.</td> <td>1.0</td>
+</tr>
+</tbody>
+</table><br /><br />
+<h2>Estrutura completa</h2>
+<br />
+<pre class="brush: js;">
+$(function(){
+    $("elemento").tabs({
+            iniciante: 1,           
+            xhtml: true,            
+            menu: "menu",           
+            abasConteudo: "aba",           
+            conteudo: "conteudo",   
+            principal: "tabs",      
+            itensMenu: "item",          
+    });
+});
+</pre>
+</div></div>
+</body>
+</html>

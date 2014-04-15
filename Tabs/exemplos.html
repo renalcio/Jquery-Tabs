@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="Renalcio" />
+    <link rel="stylesheet" type="text/css" href="css/pagina.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.tabs.css"/>
+	<title>JQuery Tabs 1.0</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.tabs.js"></script>
+    <script type="text/javascript">
+    // A Mágica
+    $(function(){
+        //Tab com XHTMl (Tags próprias)
+        $("tabs").tab();
+        //Tab sem XHTML
+        $("#tabnormal").tab({
+            xhtml: false,
+        });
+        $("#xhtmlPersonalizado").tab({
+            iniciante: 3,
+        });
+    });
+    </script>
+</head>
+
+<body>
+<tabs>
+    <menu>
+    <item>Aba 1</item>
+    <item>Aba 2</item>
+    <item>Aba 3</item>
+    <item>Aba 4</item>
+    </menu>
+    <conteudo>
+    <aba>
+    <h2>Titulo da Aba 1</h2>
+Conteudo da Aba 1
+    </aba>
+    <aba>
+    <h2>Titulo da Aba 2</h2>
+Conteudo da Aba 2
+    </aba>
+    <aba>
+    <h2>Titulo da Aba 3</h2>
+Conteudo da Aba 3
+    </aba>
+    <aba>
+    <h2>Titulo da Aba 4</h2>
+Conteudo da Aba 4
+    </aba>
+    </conteudo>
+    </tabs>
+
+<div id="tabnormal">
+<ul>
+    <li>Aba 1</li>
+    <li>Aba 2</li>
+    </ul>
+<div class="conteudo">
+<div class="aba">
+<h2>Titulo da Aba 1</h2>
+Conteudo da Aba 1
+</div>
+<div class="aba">
+<h2>Titulo da Aba 2</h2>
+Conteudo da Aba 2
+</div>
+</div>
+</div>
+
+<tabs id="xhtmlPersonalizado">
+    <menu>
+    <item>Aba 1</item>
+    <item>Aba 2</item>
+    <item>Aba 3</item>
+    <item>Aba 4</item>
+    </menu>
+    <conteudo>
+    <aba>
+    <h2>Titulo da Aba 1</h2>
+Conteudo da Aba 1
+    </aba>
+    <aba>
+    <h2>Titulo da Aba 2</h2>
+Conteudo da Aba 2
+    </aba>
+    <aba>
+    <h2>Titulo da Aba 3</h2>
+Este exemplo inicia na TAB 3
+    </aba>
+    <aba>
+    <h2>Titulo da Aba 4</h2>
+Conteudo da Aba 4
+    </aba>
+    </conteudo>
+    </tabs>
+</body>
+</html>
